@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Elavate sub</title>
+	<style>
+		* {margin: 0; padding: 0; box-sizing: border-box;}
+		body {font-family: Eudoxus Sans; overflow-x: hidden; overflow-y: auto;}
+		ul, ol, li {list-style: none;}
+
+		header {width: 100%; height: auto; margin: 0 auto;}
+
+		header > #box1 > #login > .a {display: none;}
+
+		header > #box1 {width: 1300px; height: 100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;}
+		header > #box1 > #logo_box {width: 120px; height: 48px; display: flex; justify-content: space-between; align-items: center;}
+		header > #box1 > #logo_box > #logo {width: 80px; height: 40px;}
+		header > #box1 > #logo_box > #logo > a > img {width: 100%; height: 100%;}	
+		header > #box1 > #logo_box > a > #logo_circle1 {width: 24px; height: 24px; border-radius: 100px; background-color: #404eed; mix-blend-mode: multiply;}
+		header > #box1 > #logo_box > a > #logo_circle2 {width: 24px; height: 24px; border-radius: 100px; background-color: #1fb4ff; position: relative; z-index: 1; margin-top: -8px; mix-blend-mode: multiply;}
+
+		header > #box1 > nav {display: block;}
+		header > #box1 > nav > ul {display: flex;}
+
+		header > #box1 > nav > ul > li {margin: 0 20px;}
+		header > #box1 > nav > ul > #b > a {color: #404eed;}
+		header > #box1 > nav > ul > li > a {text-decoration: none; color: #000; text-transform: capitalize; display: block;}
+		header > #box1 > nav > ul > li > a:hover {color: #404eed;}
+
+		header > #box1 > #login {width: auto; height: 50px; display: flex; align-items: center;}
+		header > #box1 > #login > ul {display: flex; align-items: center;}
+		header > #box1 > #login > ul > li {margin: 10px;}
+		header > #box1 > #login > ul > li > a {text-decoration: none; color: #000; text-transform: capitalize;}
+		header > #box1 > #login > ul > li > a:hover{color: #404eed;}
+
+		header > #box1 > #login > button {background-color: #D9DCFB; color: #404eed; border: none; font-size: 17px; font-weight: bold; width: 130px; height: 49px; border-radius: 30px; margin: 10px 0; cursor: pointer;}
+		header > #box1 > #login > button:hover {background-color: #404eed; color: #fff; transition: all 0.5s ease;}
+
+		header > #box2 {width: 100%; height: 600px; background-color: #F1F4F7; display: flex; justify-content: center; justify-content: center;}
+
+		header > #box2 > #text_box {width: auto; height: auto; text-align: center; display: flex; align-items: center; flex-direction: column; margin-top: 55px;}
+
+		header > #box2 > #text_box > div {display: flex; margin-bottom: 25px;}
+		header > #box2 > #text_box > div h3 {color: #404eed;text-transform: uppercase; margin: 0 20px; font-size: 16px;}
+		header > #box2 > #text_box > h1 {font-size: 75px; line-height: 100%; margin-bottom: 25px; font-weight: bold;}
+		header > #box2 > #text_box > p {font-size: 18px; line-height: 150%;color: #666;}
+
+
+		footer {width: 100%; height: 800px; margin: 0 auto; background-color: #fff;}
+		footer > #box1 {width: 1300px; height: 450px; background-color: #404eed; margin: 0 auto; border-radius: 25px; position: relative; left: 0; bottom: 150px; display: flex; align-items: center; justify-content: center;}
+
+		footer > #box1 > #photo {width: 40%; height: auto; display: flex; justify-content: center; align-items: center;}
+		footer > #box1 > #photo img {width: 50%; height: auto;}
+
+		footer > #box1 > #text {width: 50%; height: auto; display: flex; flex-direction: column; justify-content: space-evenly;}
+		footer > #box1 > #text h1 {font-size: 60px; color: #fff;}
+		footer > #box1 > #text p {font-size: 18px; color: #fff;}
+
+		footer > #box1 > #text > #search_box {width: 100%; height: 75px; background-color: #fff; border-radius: 50px; display: flex; align-items: center; margin: 20px 0;}
+		footer > #box1 > #text > #search_box > input[type="search"] {background-color: #fff; border: none; outline: none; width: 50%; height: 40px; margin: 0 20px; font-size: 18px;}
+		footer > #box1 > #text > #search_box > button {width: 50%; height: 80%; background-color: #404eed; color: #fff; border: none; border-radius: 50px; font-size: 19px; cursor: pointer; margin: 0 10px;}
+		footer > #box1 > #text > #search_box > button:hover {background-color: #000; color: #fff; transition: all 0.5s ease;}
+
+		footer > #box2 {width: 1300px; height: 400px; margin: 0 auto; position: relative; left: 0; bottom: 50px; padding: 25px;}
+		footer > #box2 > #logo_box {width: 120px; height: 400px; float: left;}
+		footer > #box2 > #logo_box > #logo {width: 80px; height: 40px; float: right; margin: -50px 0 0 0px;}
+		footer > #box2 > #logo_box > #logo > a > img {width: 100%; height: 100%;}
+		footer > #box2 > #logo_box > #logo_icon {bwidth: 24px; height: 48px; margin-top: 5px;}
+		footer > #box2 > #logo_box > #logo_icon > a > #logo_circle1 {width: 24px; height: 24px; border-radius: 100px; background-color: #404eed; mix-blend-mode: multiply;}
+		footer > #box2 > #logo_box > #logo_icon > a > #logo_circle2 {width: 24px; height: 24px; border-radius: 100px; background-color: #1fb4ff; position: relative; z-index: 1; margin-top: -8px; mix-blend-mode: multiply;}
+
+		footer > #box2 > button {background-color: #D9DCFB; color: #404eed; border: none; font-size: 17px; font-weight: bold; width: 200px; height: 60px; border-radius: 30px; cursor: pointer; margin: 150px 0 0 -130px;}
+		footer > #box2 > button:hover {background-color: #404eed; color: #fff; transition: all 0.5s ease;}
+
+		footer > #box2 > #nav_box {width: 800px; height: 350px; float: right; display: flex;}
+		footer > #box2 > #nav_box > .box {width:250px; height: 330px; margin: 10px;}
+		footer > #box2 > #nav_box > .box > h3 {text-transform: uppercase; font-size: 15px; color: #404eed; margin: -15px 0 0 45px; font-weight: bold;}
+		footer > #box2 > #nav_box > .box > ul > li a {text-decoration: none; color: #000; line-height: 200%; font-size: 18px;}
+		footer > #box2 > #nav_box > .box > ul > li a:hover {color: #404eed;}
+		footer > #box3 {width: 1300px; height: 60px; background-color: #F2F4F7; margin: 0 auto; border-radius: 20px 20px 0 0;}
+
+
+
+		section {width: 1300px; height: 4000px; margin: 0 auto; display: flex; position: relative; left: 0; bottom: 200px;}
+
+		section > #sec1 {width: 70%; height: 4000px; background-color: #D8DCFD; display: flex; flex-direction: column; justify-content: space-evenly; border-radius: 25px; padding: 20px;}
+
+		section > #sec1 > .box {width: 100%; height: 1300px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;}
+		section > #sec1 > .box > .text_box {width: 100%; height: 50%; background-color: ; margin: 10px; display: flex; align-items: center; flex-direction: column; justify-content: center;}
+		section > #sec1 > .box > .text_box > .a {width: 95%; height: 65%; background-color: #fff; margin: 10px; padding: 10px; border-radius: 25px; display: flex;}
+		section > #sec1 > .box > .text_box > .a > .box {width: 50%; height: 95%; margin: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+		section > #sec1 > .box > .text_box > .a > .box > img {width: 100%; height: auto; cursor: pointer;}
+		section > #sec1 > .box > .text_box > .a > .box > img:hover {opacity: 0.8;}
+		section > #sec1 > .box > .text_box > .a > .box > button {font-size: 17px; font-family: Eudoxus Sans; font-weight: 800; width: 200px; height: 50px; background-color: #fff; border: 1px solid #EEF0F3; cursor: pointer; border-radius: 50px; color: #404eed; transition: all .15s linear; margin-top: 20px;}
+		section > #sec1 > .box > .text_box > .a > .box > button:hover {background-color: #fff; border: 1px solid #EEF0F3; cursor: pointer; border-radius: 50px; color: #404eed; box-shadow: 0 2px 0 #EEF0F3, 2px 4px 6px #BDBDBD; transition: all .15s linear;}
+
+		section > #sec1 > .box > .text_box > .a > .box > .text {width: 100%; height: 95%; display: flex; flex-direction: column; justify-content: flex-start;}
+		section > #sec1 > .box > .text_box > .a > .box > .text > .box1 {display: flex; font-size: 14px; color: #404eed; margin-top: 10px;}
+		section > #sec1 > .box > .text_box > .a > .box > .text > .box1 > h3 {margin-left: 10px;}
+		section > #sec1 > .box > .text_box > .a > .box > .text > .box2 > h2 {font-size: 35px; font-weight: 800;}
+		section > #sec1 > .box > .text_box > .a > .box > .text > .box2 > h1 {font-size: 30px;}
+		section > #sec1 > .box > .text_box > .a > .box > .text > .box2 > p {font-size: 20px; color: #666;}
+
+		section > #sec1 > .box > .text_box > .a > .box > .text > .box2 > #button {width: 100%; height: auto; display: flex; align-items: center; justify-content: center;}
+		section > #sec1 > .box > .text_box > .a > .box > .text > .box2 > #button > button {font-size: 17px; font-family: Eudoxus Sans; font-weight: 800; width: 200px; height: 50px; background-color: #fff; border: 1px solid #EEF0F3; cursor: pointer; border-radius: 50px; color: #404eed; transition: all .15s linear; margin-top: 20px;}
+		section > #sec1 > .box > .text_box > .a > .box > .text > .box2 > #button > button:hover {background-color: #fff; border: 1px solid #EEF0F3; cursor: pointer; border-radius: 50px; color: #404eed; box-shadow: 0 2px 0 #EEF0F3, 2px 4px 6px #BDBDBD; transition: all .15s linear;}
+
+
+
+		section > #sec1 > .box > .text_box > .b {width: 95%; height: 30%; background-color: #fff; margin: 10px; padding: 10px; border-radius: 25px; display: flex; align-items: center;}
+
+		section > #sec1 > .box > .text_box > .b > .logo {width: 30%; height: 70%; background-color: #F1F4F7; margin: 10px; border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease-out;}
+
+		section > #sec1 > .box > .text_box > .b > .logo:hover {transform: translateY(-8%);}
+
+		section > #sec1 > .box > .text_box > .b > .bb {width: 20%; height: 95%; margin: 10px; display: flex; flex-direction: column; align-items: center;}
+		section > #sec1 > .box > .text_box > .b > .bb > p {font-size: 11px;}
+		section > #sec1 > .box > .text_box > .b > .bb > h5 {margin-top: 10px;}
+
+		section > #sec1 > .box > .text_box > .b > .bb > .photo1 {width: 100%; height: 70%; background-color: #20B3FF; border-radius: 20px; overflow: hidden;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo1 > img {width: 100%; height: 100%; transition: all 0.3s ease-out;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo1 > img:hover {transform: scale(1.2); transition: all 0.5s;}
+
+
+		section > #sec1 > .box > .text_box > .b > .bb > .photo2 {width: 100%; height: 70%; background-color: #FF7847; border-radius: 20px; overflow: hidden;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo2 > img {width: 100%; height: 100%; transition: all 0.3s ease-out;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo2 > img:hover {transform: scale(1.2); transition: all 0.5s;}
+
+		section > #sec1 > .box > .text_box > .b > .bb > .photo3 {width: 100%; height: 70%; background-color: #26C26F; border-radius: 20px; overflow: hidden;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo3 > img {width: 100%; height: 100%; transition: all 0.3s ease-out;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo3 > img:hover {transform: scale(1.2); transition: all 0.5s;}
+
+		section > #sec1 > .box > .text_box > .b > .bb > .photo4 {width: 100%; height: 70%; background-color: #FFC932; border-radius: 20px; overflow: hidden;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo4 > img {width: 100%; height: 100%; transition: all 0.3s ease-out;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo4 > img:hover {transform: scale(1.2); transition: all 0.5s;}
+
+		section > #sec1 > .box > .text_box > .b > .bb > .photo5 {width: 100%; height: 70%; background-color: #26C26F; border-radius: 20px; overflow: hidden;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo5 > img {width: 100%; height: 100%; transition: all 0.3s ease-out;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo5 > img:hover {transform: scale(1.2); transition: all 0.5s;}
+
+		section > #sec1 > .box > .text_box > .b > .bb > .photo6 {width: 100%; height: 70%; background-color: #FFC932; border-radius: 20px; overflow: hidden;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo6 > img {width: 100%; height: 100%; transition: all 0.3s ease-out;}
+		section > #sec1 > .box > .text_box > .b > .bb > .photo6 > img:hover {transform: scale(1.2); transition: all 0.5s;}
+
+		
+		
+
+
+		section > #sec1 > .box > .text_box > .c {width: 95%; height: 100%; background-color: #121722; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px;}
+		section > #sec1 > .box > .text_box > .c > h1 {font-size: 35px; color: #fff;}
+		section > #sec1 > .box > .text_box > .c > img {width: 90%; height: 60%;}
+		section > #sec1 > .box > .text_box > .c > #box {width: 90%; height: auto; color: #fff;}
+		section > #sec1 > .box > .text_box > .c > #box > #text1 {display: flex; text-transform: uppercase; font-size: 14px; color: #1FB4FF;}
+		section > #sec1 > .box > .text_box > .c > #box > #text1 > h3 {margin-left: 10px;}
+		section > #sec1 > .box > .text_box > .c > #box > h2 {font-size: 30px;}
+		section > #sec1 > .box > .text_box > .c > #box > p {font-size: 20px; opacity: 0.8;}
+		section > #sec1 > .box > .text_box > .c > #box > .button > button {border: none; background-color: #121722; color: #1FB4FF; font-size: 20px; margin: 10px; cursor: pointer; display: inline-block;}
+		section > #sec1 > .box > .text_box > .c > #box > .button > button:after {border-bottom: 2px solid #1FB4FF; display:block; content: ''; transform: scaleX(0); transition: transform 250ms ease-in-out; transform-origin:  0% 50%;}
+		section > #sec1 > .box > .text_box > .c > #box > .button > button:hover:after {transform: scaleX(1);}
+
+
+		section > #sec1 > .box > .text_box > .cc {width: 95%; height: 80%; background-color: #121722; border-radius: 25px; display: flex; align-items: center; padding: 20px;}
+		section > #sec1 > .box > .text_box > .cc > img {width: 55%; height: auto; margin-right: 10px;}
+		section > #sec1 > .box > .text_box > .cc > #box {width: 45%; height: auto; background-color: #121722; color: #fff;}
+		section > #sec1 > .box > .text_box > .cc > #box > #text1 {display: flex; color: #1FB4FF; font-size: 14px;}
+		section > #sec1 > .box > .text_box > .cc > #box > #text1 > h3 {margin-left: 10px;}
+		section > #sec1 > .box > .text_box > .cc > #box > #text2 > h2 {font-size: 30px; margin-top: 10px;}
+		section > #sec1 > .box > .text_box > .cc > #box > #text2 > p {font-size: 20px; margin-top: 10px; opacity: 0.8;}
+		section > #sec1 > .box > .text_box > .cc > #box > #text3 {display: flex; margin-top: 30px;}
+		section > #sec1 > .box > .text_box > .cc > #box > #text3 > .box {width: 50%;}
+		section > #sec1 > .box > .text_box > .cc > #box > #text3 > .box > p {font-size: 14px; opacity: 0.8;}
+		section > #sec1 > .box > .text_box > .cc > #box > .button > button {border: none; background-color: #121722; color: #1FB4FF; font-size: 20px; margin: 10px; cursor: pointer; display: inline-block;}
+		section > #sec1 > .box > .text_box > .cc > #box > .button > button:after {border-bottom: 2px solid #1FB4FF; display:block; content: ''; transform: scaleX(0); transition: transform 250ms ease-in-out; transform-origin:  0% 50%;}
+		section > #sec1 > .box > .text_box > .cc > #box > .button > button:hover:after {transform: scaleX(1);}
+
+		section > #sec1 > .box2 {width: 100%; height: 1300px; display: flex; align-items: center; justify-content: space-between;}	
+		section > #sec1 > .box2 > .text_box {width: 50%; height: 100%; background-color:; margin: 10px; display: flex; flex-direction: column; align-items: center;}
+		section > #sec1 > .box2 > .text_box > .d {width: 95%; height: 40%; margin: 10px; background-color: #fff; border-radius: 25px; padding: 20px;}
+		section > #sec1 > .box2 > .text_box > .d img {width: 100%; height: auto; cursor: pointer;}
+		section > #sec1 > .box2 > .text_box > .d img:hover {opacity: 0.8;}
+		section > #sec1 > .box2 > .text_box > .d h1 {font-size: 20px; margin-bottom: 15px;}
+		section > #sec1 > .box2 > .text_box > .d h4 {color: #404eed; text-transform: uppercase; font-size: 14px; font-weight: 800; margin-bottom: 10px;}
+		section > #sec1 > .box2 > .text_box > .d > button {color: #404eed; display:inline-block; margin:0; text-transform:uppercase; border:none; background-color:#fff; cursor:pointer; font-size: 20px; font-weight: 800;}
+
+		section > #sec1 > .box2 > .text_box > .d > button:after {display:block; content: ''; border-bottom: solid 3px #404eed; transform: scaleX(0); transition: transform 250ms ease-in-out; transform-origin:  0% 50%;}
+
+		section > #sec1 > .box2 > .text_box > .d > button:hover:after {transform: scaleX(1);}
+
+
+		section > #sec1 > .box2 > .text_box > .e {width: 95%; height: 60%; background-color: #fff; margin: 10px; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;}
+		section > #sec1 > .box2 > .text_box > .e > #box1 {width: 100%; height: 45%;}
+		section > #sec1 > .box2 > .text_box > .e > #box1 > h1 {font-size: 40px; margin-top: 25px;}
+		section > #sec1 > .box2 > .text_box > .e > #box1 > p {font-size: 18px; color: #666; margin-top: 10px;}
+		section > #sec1 > .box2 > .text_box > .e > #box1 > .text {display: flex; margin-top: 20px; cursor: pointer;}
+		section > #sec1 > .box2 > .text_box > .e > #box1 > .text:hover {color: #404eed;}
+		section > #sec1 > .box2 > .text_box > .e > #box1 > .text > h2 {font-size: 18px; margin-left: 10px;}
+		section > #sec1 > .box2 > .text_box > .e > #box1 > .text:hover {color: #404eed;}
+
+		section > #sec1 > .box2 > .text_box > .e > #box2 {width: 100%; height: 55%; display: flex; flex-direction: column;}
+		section > #sec1 > .box2 > .text_box > .e > #box2  > h3 {margin-bottom: 10px;}
+		section > #sec1 > .box2 > .text_box > .e > #box2  > #input_box {display: flex; flex-direction: column; align-items: center;}	
+		section > #sec1 > .box2 > .text_box > .e > #box2  > #input_box > .text {border: none; outline: none; border-radius: 20px; background-color: #F1F4F7; padding: 10px; margin: 10px; font-family: Eudoxus Sans;}
+
+		section > #sec1 > .box2 > .text_box > .e > #box2  > #input_box > input {margin: 10px; padding: 10px;}
+		section > #sec1 > .box2 > .text_box > .e > #box2  > #input_box > input[name="name"] {width: 90%; height: 40px; border: none; background-color: #F1F4F7; outline: none; border-radius: 25px;}
+		section > #sec1 > .box2 > .text_box > .e > #box2  > #input_box > input[name="email"] {width: 90%; height: 40px; border: none; background-color: #F1F4F7; outline: none; border-radius: 25px;}
+		section > #sec1 > .box2 > .text_box > .e > #box2  > #input_box > input[name="company"] {width: 90%; height: 40px; border: none; background-color: #F1F4F7; outline: none; border-radius: 25px;}
+
+		section > #sec1 > .box2 > .text_box > .e > #box2  > div {margin-bottom: 10px;}
+		section > #sec1 > .box2 > .text_box > .e > #box2  > div > span {font-size: 14px;}
+		section > #sec1 > .box2 > .text_box > .e > #box2 > button {background-color: #404eed; color: #fff; border: none; border-radius: 50px; font-size: 18px; width: 40%; height: 100px; cursor: pointer; font-size: 12px;}
+		section > #sec1 > .box2 > .text_box > .e > #box2 > button:hover {background-color: #000; transition: all 0.5s;}
+
+
+		section > #sec1 > .box2 > .text_box > .ee {width: 95%; height: 60%; background-color: #404eed; margin: 10px; display: flex; align-items: center; flex-direction: column; justify-content: flex-end; border-radius: 25px; padding: 20px;}
+		section > #sec1 > .box2 > .text_box > .ee > #text {width: 100%; height: auto; margin-bottom: 100px;}
+		section > #sec1 > .box2 > .text_box > .ee > #text > div {width: 190px; height: auto; display: flex; justify-content: space-between;}
+		section > #sec1 > .box2 > .text_box > .ee > #text > div h3 {font-size: 16px; margin-left: 20px; color: #1FB4FF;}
+		section > #sec1 > .box2 > .text_box > .ee > #text h1 {font-size: 40px; color: #fff; font-weight: 800;}
+		section > #sec1 > .box2 > .text_box > .ee img {width: 70%; height: auto;}
+		section > #sec1 > .box2 > .text_box > .ee > #search_box {width: 95%; height: 90px; background-color: #fff; display: flex; justify-content: space-around; padding: 10px; border-radius: 50px; position: relative; left: 0; bottom: 180px;}
+		section > #sec1 > .box2 > .text_box > .ee > #search_box > input[type="search"] {background-color: #fff; border: none; outline: none; font-size: 18px; width: 50%; margin-left: 10px;}
+		section > #sec1 > .box2 > .text_box > .ee > #search_box > button {background-color: #404eed; color: #fff; border: none; border-radius: 50px; font-size: 18px; width: 40%; cursor: pointer; margin-left: 25px;}
+		section > #sec1 > .box2 > .text_box > .ee > #search_box > button:hover {background-color: #000; transition: all 0.5s;}
+
+
+
+		section > #sec2 {width: 30%; height: 2600px; background-color: #404eed; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 25px; overflow: hidden; margin: 0 0 0 10px;}
+
+		section > #sec2 > .box1 {width: 90%; height: 490px; margin: 10px;}
+		section > #sec2 > .box1 > #a {width: 100%; height: 30%; padding: 20px; display: flex; flex-direction: column; justify-content: center;}
+		section > #sec2 > .box1 > #a > div {display: flex;}
+		section > #sec2 > .box1 > #a > div > h3 {color: #1FB4FF; margin-left: 10px; font-size: 14px;}
+		section > #sec2 > .box1 > #a > h1 {color: #fff; margin-top: 10px; font-size: 30px;}
+
+		section > #sec2 > .box1 > #b {width: 100%; height: 70%; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+		section > #sec2 > .box1 > #b > .box {width: 100%; height: 50%; margin: 5px; display: flex;}
+		section > #sec2 > .box1 > #b > .box > .img {width: 30%; height: 100%; background-color: #fff; border-radius: 50px; overflow: hidden;}
+		section > #sec2 > .box1 > #b > .box > .img > img {width: 100%; height: 100%; border-radius: 50px; transition: all 0.3s ease-out; cursor: pointer;}
+		section > #sec2 > .box1 > #b > .box > .img > img:hover {transform: scale(0.85);}
+
+		section > #sec2 > .box1 > #b > .box > .text {width: 65%; height: 100%; margin-left: 10px; display: flex; flex-direction: column; justify-content: center; cursor: pointer; border-bottom: 1px solid #ddd;}
+		section > #sec2 > .box1 > #b > .box > .text h3 {font-size: 14px; color: #1FB4FF;}
+		section > #sec2 > .box1 > #b > .box > .text h1 {font-size: 15px; color: #fff;}
+
+		section > #sec2 > .box2 {width: 90%; height: 490px; background-color: #fff; margin: 10px;}
+		section > #sec2 > .box3 {width: 90%; height: 490px; background-color: #fff; margin: 10px;}
+		section > #sec2 > .box4 {width: 90%; height: 490px; background-color: #fff; margin: 10px;}
+		section > #sec2 > .box5 {width: 90%; height: 490px; background-color: #fff; margin: 10px;}
+
+
+
+
+
+
+
+	</style>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".a").click(function(){
+				$("nav").slideToggle();
+			});
+
+			$(window).resize(function(){
+				if(window.innerWidth>=1200){
+					$("nav").show();
+				}
+				if(window.innerWidth<=1199){
+					$("nav").hide();
+				}
+			});
+
+		});
+	</script>
+</head>
+<body>
+
+	<div id="wrap">
+		<header>
+			<div id="box1">
+				<div id="logo_box">
+					<a href="#">
+						<div id="logo_circle1"></div>
+						<div id="logo_circle2"></div>				
+					</a>
+					<div id="logo">
+						<a href="#"><img src="img/logo.svg" alt="상단_로고"></a>
+					</div>
+				</div>
+
+				<nav>
+					<ul>
+						<li><a href="#">features</a></li>
+						<li><a href="#">pricing</a></li>
+						<li><a href="#">about</a></li>
+						<li id="b"><a href="#">blog</a></li>
+						<li><a href="#">contact</a></li>
+					</ul>
+				</nav>
+
+				<div id="login">
+					<ul>
+						<li><a href="#">cart</a></li>
+						<li><a href="#">login</a></li>
+					</ul>
+					<button>Get started</button>
+					<img src="img/hamburger.svg" class="a">
+				</div>		
+			</div>
+
+			<div id="box2">
+				<div id="text_box">
+					<div>
+						<img src="img/text_bar.svg" alt="텍스트_바">
+						<h3 style="letter-spacing: 4px;">blog</h3>
+						<img src="img/text_bar.svg" alt="텍스트_바">
+					</div>
+					<h1>Fresh insights from<br> experts every week.</h1>
+					<p>Learn from seasoned social media experts and grow your business<br> with optimized, flawless marketing.</p>
+				</div>
+			</div>
+		</header>
+
+		<section>
+			<div id="sec1">
+				<div class="box">
+					<div class="text_box">
+						<div class="a">
+							<div class="box">
+								<img src="img/sub4.jpeg">
+								<button>Contact support team</button>
+							</div>
+							<div class="box">
+								<div class="text">
+									<div class="box1">
+										<img src="img/text_bar.svg" alt="텍스트_바">
+										<h3 style="letter-spacing: 4px;">SUPPORT</h3>
+									</div>
+									<div class="box2">
+										<h1>Still confused? Ask us anything.</h1><br>
+										<p>We offer 24/7 on-call, live chat and email support to AlL our customers, no matter what plan you choose or what time-zone you’re in.
+											<br>
+											<br>
+										We believe everyone deserves access to help, when they need it.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="b">
+							<div class="logo">
+								<img src="img/company1.svg" alt="타회사로고1">
+							</div>
+							<div class="logo">
+								<img src="img/company2.svg" alt="타회사로고1">
+							</div>
+							<div class="logo">
+								<img src="img/company3.svg" alt="타회사로고1">
+							</div>
+							<div class="logo">
+								<img src="img/company4.svg" alt="타회사로고1">
+							</div>
+						</div>
+					</div>
+
+					<div class="text_box">
+						<div class="a">
+							<div class="box">
+								<div class="text">
+									<div class="box1">
+										<img src="img/text_bar.svg" alt="텍스트_바">
+										<h3 style="letter-spacing: 4px;">OUR STORY</h3>
+									</div>
+									<div class="box2">
+										<h2>Social media is<br> saturated, and you<br> need something<br> special to grab<br> attention.</h2>
+										<div id="button">
+											<button>Behind story</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="box">
+								<img src="img/sub3.png">
+							</div>
+						</div>
+
+						<div class="b">
+							<div class="bb">
+								<div class="photo1">
+									<img src="img/p1.png">
+								</div>
+								<h5>Paul Smith</h5>
+								<p>Founder & CEO</p>
+							</div>
+							<div class="bb">
+								<div class="photo2">
+									<img src="img/p2.png">
+								</div>
+								<h5>Kristin Watson</h5>
+								<p>Co-Founder & COO</p>
+							</div>
+							<div class="bb">
+								<div class="photo3">
+									<img src="img/p3.png">
+								</div>
+								<h5>Wade Warren</h5>
+								<p>Chief Product Officer</p>
+							</div>
+							<div class="bb">
+								<div class="photo4">
+									<img src="img/p4.png">
+								</div>
+								<h5>Bessie Cooper</h5>
+								<p>Product Designer</p>
+							</div>
+							<div class="bb">
+								<div class="photo5">
+									<img src="img/p5.png">
+								</div>
+								<h5>Kathryn Murphy</h5>
+								<p>Director of Brand</p>
+							</div>
+							<div class="bb">
+								<div class="photo6">
+									<img src="img/p6.png">
+								</div>
+								<h5>Cody Fisher</h5>
+								<p>Content Strategy</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="text_box">
+						<div class="c">
+							<h1>Upcoming webinar</h1>
+
+							<img src="img/sub1.png">
+
+							<div id="box">
+								
+								<div id="text1">
+									<img src="img/text_bar2.svg" alt="텍스트_바2">
+									<h3 style="letter-spacing: 4px;">22 march 2022, 8pm ist</h3>
+								</div>
+
+
+								<h2>How to measure the ROI of<br> your social media efforts</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+								<div class="button">
+									<button>Claim your spot on Zoom</button>
+								</div>
+							</div>							
+						</div>
+					</div>
+					<div class="text_box">
+						<div class="cc">
+							
+							<img src="img/sub2.jpeg">
+							
+							<div id="box">
+								<div id="text1">
+									<img src="img/text_bar2.svg" alt="텍스트_바2">
+									<h3 style="letter-spacing: 4px;">LOCATION/OFFICE</h3>
+								</div>
+
+								<div id="text2">
+									<h2>Where you'll find us.</h2>
+									<p>Being able to monitor everything going on in your business is crucial. Thousands of Shopify Brands have made the switch. Text marketing with the customer in mind!</p>
+								</div>
+
+								<div id="text3">
+									<div class="box">
+										<h3>UK office</h3>
+										<p>2H Woodstock Studios
+											36 Woodstock Grove
+											London, W12 8LE
+										United Kingdom</p>
+									</div>
+									<div class="box">
+										<h3>Germany office</h3>
+										<p>Ludolfstraße 60, Hamburg,Hamburg 20249, DE</p>
+									</div>
+								</div>
+
+								<div class="button">
+									<button>Contact us</button>
+								</div>	
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<div class="box2">
+					<div class="text_box">
+						<div class="d">
+							<img src="img/scalebox1.png">
+							<h4 style="letter-spacing: 4px;">testing</h4>
+							<h1>How to host better email marketing campaigns?</h1>
+							<button>read post</button>
+						</div>
+						<div class="e">
+							<div id="box1">
+								<h1>Let's Talk!</h1>
+								<p>We’re here to help. Ask us about the product, our services, and any questions you have. Fill out the form and we’ll be in touch as soon as possible.</p>
+								<div class="text">
+									<img src="img/sms.svg">
+									<h2>thisisanemail@example.com</h2>
+								</div>
+								<div class="text">
+									<img src="img/call.svg">
+									<h2>+1 012 345 6789</h2>
+								</div>
+							</div>
+							<div id="box2">
+								<h3>Help us get to know you.</h3>
+								<div id="input_box">
+									<input type="search" name="name" placeholder="Full name">
+									<input type="search" name="email" placeholder="Email address">
+									<input type="search" name="company" placeholder="Company name">
+
+									<textarea placeholder="What do you want to know about?" cols="43" rows="5" class="text"></textarea>
+								</div>
+								<div>
+									<input type="checkbox" name="sub" value="Subscribe">
+									<span>Subscribe to our email newsletter.</span>
+								</div>
+								
+								<button>Contect us</button>
+							</div>
+						</div>
+					</div>
+					<div class="text_box">
+						<div class="ee">
+							<div id="text">
+								<div>
+									<img src="img/text_bar2.svg" alt="텍스트_바2">
+									<h3 style="letter-spacing: 4px;">NEWSLETTER</h3>
+								</div>
+								<h1>Enter email to subscribe to our newsletter.</h1>
+							</div>
+							<img src="img/heart.png">
+							<div id="search_box">
+								<input type="search" name="subscribe" placeholder="Enter your email">
+								<button>subscribe now</button>
+							</div>
+						</div>	
+						<div class="d">
+							<img src="img/scalebox4.png">
+							<h4 style="letter-spacing: 4px;">how tos</h4>
+							<h1>Use this larger text area to briefly introduce the contents of the article.</h1>
+							<button>read post</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="sec2">
+				<div class="box1">
+					<div id="a">
+						<div>
+							<img src="img/text_bar2.svg" alt="텍스트_바2">
+							<h3 style="letter-spacing: 4px;">PLESS</h3>
+						</div>
+						<h1>We’re in the papers!</h1>
+					</div>
+					<div id="b">
+						<div class="box">
+							<div class="img">
+								<img src="img/news1.png">
+							</div>
+							<div class="text">
+								<h3 style="letter-spacing: 4px;">TECHNEWS</h3>
+								<h1>Elevate emerges from Stealth with $54 Million in Funding.</h1>
+							</div>
+						</div>
+						<div class="box">
+							<div class="img">
+								<img src="img/news2.png">
+							</div>
+							<div class="text">
+								<h3 style="letter-spacing: 4px;">GROWTHNEWT,ORG</h3>
+								<h1>Elevate is changing how social media marketing is done.</h1>
+							</div>
+						</div>
+						<div class="box">
+							<div class="img">
+								<img src="img/news3.png">
+							</div>
+							<div class="text">
+								<h3 style="letter-spacing: 4px;">MARKETING101</h3>
+								<h1>How Elevate grew to 3M users in less than 2 years.</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="box2"></div>
+
+				<div class="box3"></div>
+
+				<div class="box4"></div>
+
+				<div class="box5"></div>
+			</div>
+		</section>
+
+
+		<footer>
+			<div id="box1">
+				<div id="text">
+					<h1>Analytics that matter.</h1>
+					<p>Plan, engage, and analyse with ease. Transform your<br> social media strategy with an all-in-one platform.</p>
+					<div id="search_box">
+						<input type="search" name="search" placeholder="Enter your email">
+						<button style="letter-spacing: -1px;">Get started for Free</button>
+					</div>
+				</div>
+				<div id="photo">
+					<img src="img/footer_img.png">
+				</div>
+			</div>
+			<div id="box2">
+				<div id="logo_box">
+					<div id="logo_icon">
+						<a href="#">
+							<div id="logo_circle1"></div>
+							<div id="logo_circle2"></div>				
+						</a>
+					</div>
+					<div id="logo">
+						<a href="#"><img src="img/logo.svg" alt="상단_로고"></a>
+					</div>
+				</div>
+				<button>Get started</button>
+				<div id="nav_box">
+					<div class="box">
+						<img src="img/text_bar.svg" alt="텍스트_바">
+						<h3 style="letter-spacing: 4px;">main pages</h3><br>
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Features</a></li>
+							<li><a href="#">Pricing</a></li>
+							<li><a href="#">About</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+					</div>
+					<div class="box">
+						<img src="img/text_bar.svg" alt="텍스트_바">
+						<h3 style="letter-spacing: 4px;">cms pages</h3><br>
+						<ul>
+							<li><a href="#">Blog</a></li>
+							<li><a href="#">Blog Details</a></li>
+							<li><a href="#">Career</a></li>
+							<li><a href="#">Career Details</a></li>
+							<li><a href="#">Integrations</a></li>
+							<li><a href="#">Integration Details</a></li>
+						</ul>
+					</div>
+					<div class="box">
+						<img src="img/text_bar.svg" alt="텍스트_바">
+						<h3 style="letter-spacing: 4px;">other pages</h3><br>
+						<ul>
+							<li><a href="#">Style Guide</a></li>
+							<li><a href="#">Licenses</a></li>
+							<li><a href="#">Instructions</a></li>
+							<li><a href="#">Changelog</a></li>
+							<li><a href="#">404 Page</a></li>
+							<li><a href="#">Login</a></li>
+							<li><a href="#">Sign up</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="box3"></div>
+		</footer>
+	</div>
+	
+
+
+</body>
+</html>
